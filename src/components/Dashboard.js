@@ -203,16 +203,7 @@ const ErrorMessage = styled(motion.div)`
   margin: 2rem 0;
 `;
 
-const InfoMessage = styled(motion.div)`
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: #93c5fd;
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  text-align: center;
-  margin: 1rem 0;
-  font-size: 0.875rem;
-`;
+
 
 
 function Dashboard() {
