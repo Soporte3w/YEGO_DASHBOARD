@@ -312,7 +312,7 @@ function Dashboard() {
         </HeaderContent>
       </DashboardHeader>
 
-                                                       <DashboardContent>
+                                                                                                               <DashboardContent>
           <IframeContainer
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}

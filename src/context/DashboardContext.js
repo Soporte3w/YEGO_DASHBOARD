@@ -16,21 +16,11 @@ export const DashboardProvider = ({ children }) => {
       id: 'yego_lima',
       nombre: 'Yego Lima',
       descripcion: 'Dashboard de métricas y análisis para la operación de Yego en Lima',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiZDI1NGM2ZGItY2NiYi00MmEyLTgxMDItZmQ1NWIwNWM5ZTE5IiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiZTk1MWIxODYtNDdhNi00ZjE3LTgyMzQtNjI2NWFkYTkxMWEwIiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#dc2626',
       icono: '🏙️',
       categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-15'
-    },
-    {
-      id: 'yego_quito',
-      nombre: 'Yego Quito',
-      descripcion: 'Análisis detallado del rendimiento de Yego en Quito',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiYOUR_EMBED_URL_HERE',
-      color: '#991b1b',
-      icono: '🏔️',
-      categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-14'
+            ultimaActualizacion: '2024-01-15'
     },
     {
       id: 'yego_barranquilla',
