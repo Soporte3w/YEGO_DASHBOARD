@@ -209,7 +209,7 @@ function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [error, setError] = useState(null);
-  const [lastRefresh, setLastRefresh] = useState(new Date());
+
 
   const dashboard = obtenerDashboard(id);
 
@@ -229,7 +229,6 @@ function Dashboard() {
 
   const handleRefresh = () => {
     setIsLoading(true);
-    setLastRefresh(new Date());
     
     setTimeout(() => {
       setIsLoading(false);

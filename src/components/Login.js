@@ -145,26 +145,7 @@ const ErrorMessage = styled(motion.div)`
   font-size: 0.875rem;
 `;
 
-const DefaultPassword = styled.div`
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  margin-top: 1rem;
-`;
 
-const DefaultPasswordText = styled.p`
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin: 0;
-`;
-
-const DefaultPasswordValue = styled.span`
-  color: var(--primary-color);
-  font-weight: 600;
-  font-family: monospace;
-`;
 
 function Login({ onLogin }) {
   const [password, setPassword] = useState('');
@@ -249,6 +230,19 @@ function Login({ onLogin }) {
             )}
           </LoginButton>
         </Form>
+        
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.05)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          padding: '1rem',
+          borderRadius: '8px',
+          textAlign: 'center',
+          marginTop: '1rem'
+        }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', margin: 0 }}>
+            Contraseña por defecto: <span style={{ color: 'var(--primary-color)', fontWeight: 600, fontFamily: 'monospace' }}>yego2025</span>
+          </p>
+        </div>
       </LoginCard>
     </LoginContainer>
   );
