@@ -228,11 +228,11 @@ function Login({ onLogin }) {
                 Iniciar Sesión
               </>
             )}
-          </LoginButton>
-        </Form>
-      </LoginCard>
-    </LoginContainer>
-  );
-}
+                     </LoginButton>
+         </Form>
+       </LoginCard>
+     </LoginContainer>
+   );
+ }
 
 export default Login; 

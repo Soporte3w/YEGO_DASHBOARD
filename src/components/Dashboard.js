@@ -156,6 +156,7 @@ const PowerBIIframe = styled.iframe`
   height: 100%;
   border: none;
   background: white;
+  allow: "fullscreen"
 `;
 
 const LoadingOverlay = styled(motion.div)`
@@ -200,6 +201,17 @@ const ErrorMessage = styled(motion.div)`
   border-radius: var(--border-radius);
   text-align: center;
   margin: 2rem 0;
+`;
+
+const InfoMessage = styled(motion.div)`
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.875rem;
 `;
 
 
@@ -300,12 +312,12 @@ function Dashboard() {
         </HeaderContent>
       </DashboardHeader>
 
-             <DashboardContent>
-         <IframeContainer
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
+                                                       <DashboardContent>
+          <IframeContainer
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
           <IframeWrapper isFullscreen={isFullscreen}>
             <PowerBIIframe
               src={dashboard.url}

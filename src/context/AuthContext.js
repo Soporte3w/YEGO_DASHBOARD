@@ -15,22 +15,19 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Verificar si el usuario ya está autenticado al cargar la aplicación
-    const authStatus = localStorage.getItem('yego_auth');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
-    }
+    // Siempre pedir login al cargar la aplicación
+    setIsAuthenticated(false);
     setIsLoading(false);
   }, []);
 
   const login = () => {
     setIsAuthenticated(true);
-    localStorage.setItem('yego_auth', 'true');
+    // No guardar en localStorage para que siempre pida login
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('yego_auth');
+    // No es necesario remover de localStorage
   };
 
   const value = {

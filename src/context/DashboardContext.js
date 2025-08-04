@@ -16,7 +16,7 @@ export const DashboardProvider = ({ children }) => {
       id: 'yego_lima',
       nombre: 'Yego Lima',
       descripcion: 'Dashboard de métricas y análisis para la operación de Yego en Lima',
-      url: 'https://app.powerbi.com/reportEmbed?reportId=d254c6db-ccbb-42a2-8102-fd55b05c9e19&autoAuth=true&ctid=98201fef-d9f6-4e68-84f5-c2705074e342',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiZDI1NGM2ZGItY2NiYi00MmEyLTgxMDItZmQ1NWIwNWM5ZTE5IiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#dc2626',
       icono: '🏙️',
       categoria: 'Operaciones',
