@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+import Login from './components/Login';
 import { DashboardProvider } from './context/DashboardContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -33,7 +35,8 @@ const Particle = styled(motion.div)`
   opacity: 0.6;
 `;
 
-function App() {
+function AppContent() {
+  const { isAuthenticated, isLoading, login } = useAuth();
   const [particles] = useState(() => {
     return Array.from({ length: 50 }, (_, i) => ({
       id: i,
@@ -43,6 +46,26 @@ function App() {
       duration: 10 + Math.random() * 20
     }));
   });
+
+  if (isLoading) {
+    return (
+      <AppContainer>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '100vh',
+          color: 'var(--text-primary)'
+        }}>
+          Cargando...
+        </div>
+      </AppContainer>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <Login onLogin={login} />;
+  }
 
   return (
     <DashboardProvider>
@@ -105,6 +128,14 @@ function App() {
         </AppContainer>
       </Router>
     </DashboardProvider>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 

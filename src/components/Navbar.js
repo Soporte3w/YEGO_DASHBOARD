@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { Menu, X, Home, TrendingUp } from 'lucide-react';
+import { Menu, X, Home, TrendingUp, LogOut } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
+import { useAuth } from '../context/AuthContext';
 
 const NavContainer = styled(motion.nav)`
   position: fixed;
@@ -146,9 +147,29 @@ const CloseButton = styled.button`
   }
 `;
 
+const LogoutButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: translateY(-1px);
+  }
+`;
+
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const location = useLocation();
+  const { logout } = useAuth();
 
   const cerrarMenu = () => setMenuAbierto(false);
 
@@ -173,6 +194,10 @@ function Navbar() {
               <TrendingUp size={16} style={{ marginRight: '0.5rem' }} />
               Dashboards
             </NavLink>
+            <LogoutButton onClick={logout}>
+              <LogOut size={16} />
+              Cerrar Sesión
+            </LogoutButton>
           </NavLinks>
           
           <MobileMenuButton onClick={() => setMenuAbierto(true)}>
@@ -201,6 +226,11 @@ function Navbar() {
             <MobileNavLink to="/dashboard/yego_lima" onClick={cerrarMenu}>
               <TrendingUp size={24} />
               Dashboards
+            </MobileNavLink>
+            
+            <MobileNavLink as="button" onClick={() => { logout(); cerrarMenu(); }}>
+              <LogOut size={24} />
+              Cerrar Sesión
             </MobileNavLink>
           </MobileMenu>
         )}
