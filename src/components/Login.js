@@ -178,7 +178,7 @@ function Login({ onLogin }) {
       >
         <LogoContainer>
           <LogoImage src="/imagenes/yego.png" alt="YEGO Logo" />
-          <Title>Sistema de Dashboards</Title>
+          <Title>Dashboards</Title>
           <Subtitle>Ingresa tu contraseña para continuar</Subtitle>
         </LogoContainer>
 
@@ -230,19 +230,6 @@ function Login({ onLogin }) {
             )}
           </LoginButton>
         </Form>
-        
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.05)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          padding: '1rem',
-          borderRadius: '8px',
-          textAlign: 'center',
-          marginTop: '1rem'
-        }}>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', margin: 0 }}>
-            Contraseña por defecto: <span style={{ color: 'var(--primary-color)', fontWeight: 600, fontFamily: 'monospace' }}>yego2025</span>
-          </p>
-        </div>
       </LoginCard>
     </LoginContainer>
   );
