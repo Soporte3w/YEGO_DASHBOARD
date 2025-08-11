@@ -26,7 +26,7 @@ export const DashboardProvider = ({ children }) => {
       id: 'yego_barranquilla',
       nombre: 'Yego Barranquilla',
       descripcion: 'Métricas y KPIs de la operación de Yego en Barranquilla',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiYOUR_EMBED_URL_HERE',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiY2Q3YTYwZWItNGMzMy00OWFiLTlkMTAtNWFlYWJmMjQyNGM5IiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#ef4444',
       icono: '🌊',
       categoria: 'Operaciones',
