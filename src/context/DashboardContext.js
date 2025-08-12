@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 
 const DashboardContext = createContext();
 
@@ -10,8 +10,21 @@ export const useDashboard = () => {
   return context;
 };
 
+// Función para obtener la fecha y hora actual formateada
+const obtenerFechaActual = () => {
+  const ahora = new Date();
+  const año = ahora.getFullYear();
+  const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+  const dia = String(ahora.getDate()).padStart(2, '0');
+  const hora = String(ahora.getHours()).padStart(2, '0');
+  const minutos = String(ahora.getMinutes()).padStart(2, '0');
+  
+  return `${año}-${mes}-${dia} ${hora}:${minutos}`;
+};
+
 export const DashboardProvider = ({ children }) => {
-  const [dashboards] = useState([
+  // Usar useMemo para generar los dashboards con fecha actual cada vez que se recarga
+  const dashboards = useMemo(() => [
     {
       id: 'yego_lima',
       nombre: 'Yego Lima',
@@ -20,7 +33,7 @@ export const DashboardProvider = ({ children }) => {
       color: '#dc2626',
       icono: '🏙️',
       categoria: 'Operaciones',
-            ultimaActualizacion: '2024-01-15'
+      ultimaActualizacion: obtenerFechaActual()
     },
     {
       id: 'yego_barranquilla',
@@ -30,39 +43,39 @@ export const DashboardProvider = ({ children }) => {
       color: '#ef4444',
       icono: '🌊',
       categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-13'
+      ultimaActualizacion: obtenerFechaActual()
     },
     {
-      id: 'yego_bogota',
-      nombre: 'Yego Bogotá',
-      descripcion: 'Dashboard completo de análisis para Bogotá',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiYOUR_EMBED_URL_HERE',
+      id: 'yego_cucuta',
+      nombre: 'Yego Cúcuta',
+      descripcion: 'Dashboard completo de análisis para Cúcuta',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiMTBlN2U3ZmUtOTNlNS00ZDRkLWE5ZTItNWI3OWRiNWJjMmY2IiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#7f1d1d',
       icono: '🏢',
       categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-12'
+      ultimaActualizacion: obtenerFechaActual()
     },
     {
-      id: 'yego_medellin',
-      nombre: 'Yego Medellín',
-      descripcion: 'Análisis de rendimiento y métricas de Medellín',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiYOUR_EMBED_URL_HERE',
+      id: 'yego_bogotá',
+      nombre: 'Yego Bogota',
+      descripcion: 'Análisis de rendimiento y métricas de Bogota',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiOTE2Yjg3M2MtZmI3Ny00MmI4LTlmZDAtMDQ1ZTMyOGVlYjVmIiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#b91c1c',
       icono: '🌸',
       categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-11'
+      ultimaActualizacion: obtenerFechaActual()
     },
     {
-      id: 'yego_cali',
-      nombre: 'Yego Cali',
-      descripcion: 'Dashboard de métricas para la operación en Cali',
-      url: 'https://app.powerbi.com/view?r=eyJrIjoiYOUR_EMBED_URL_HERE',
+      id: 'yego_bucaramanga',
+      nombre: 'Yego Bucaramanga',
+      descripcion: 'Dashboard de métricas para la operación en Bucaramanga',
+      url: 'https://app.powerbi.com/view?r=eyJrIjoiMmM4ZDgxNTAtOGVhNS00ZTI2LTkxZjQtMDI3ODQ4ZTdjMjA3IiwidCI6Ijk4MjAxZmVmLWQ5ZjYtNGU2OC04NGY1LWMyNzA1MDc0ZTM0MiIsImMiOjR9',
       color: '#dc2626',
       icono: '🌴',
       categoria: 'Operaciones',
-      ultimaActualizacion: '2024-01-10'
+      ultimaActualizacion: obtenerFechaActual()
     }
-  ]);
+  ], []); // El array vacío como dependencia hace que se recalcule en cada render
 
   const [dashboardActivo, setDashboardActivo] = useState(null);
 
